@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poro StudyBuddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="png" href="poro.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo">
+        <img src="poro.png" alt="Poro StudyBuddy Logo">
+      </div>
+      <div>
+        <h1 class="title">Poro StudyBuddy</h1>
+        <p class="subtitle">Planner | Habits | Resources</p>
+      </div>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+
+    <nav class="app-nav" id="appNav">
+      <a href="#dashboard" class="nav-link">Dashboard</a>
+      <a href="#tasks" class="nav-link">Tasks</a>
+      <a href="#habits" class="nav-link">Habits</a>
+      <a href="#resources" class="nav-link">Resources</a>
+      <a href="#settings" class="nav-link">Settings</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="dashboard" class="page">
+      <div class="page-header">
+        <h2>Dashboard</h2>
+        <p class="muted">Overview of your week</p>
+      </div>
+
+      <div class="grid stats">
+        <div class="card">
+          <p class="card-label">Total Tasks</p>
+          <p class="card-value" id="dbTotalTasks">0</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Completed Tasks</p>
+          <p class="card-value" id="dbCompletedTasks">0</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Due Soon (2 days)</p>
+          <p class="card-value" id="dbDueSoon">0</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Habits Met Goal</p>
+          <p class="card-value" id="dbHabitsMet">0</p>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Task Completion</h3>
+            <span class="muted" id="dbTaskPercent">0%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" id="dbTaskProgressBar" style="width:0%"></div>
+          </div>
+          <p class="muted small" id="dbTaskProgressText">0 / 0 completed</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Today / Next 2 Days</h3>
+            <span class="muted small" id="dbTodayRange"></span>
+          </div>
+          <ul class="list" id="dbTodayList"></ul>
+          <p class="muted small" id="dbTodayEmpty" style="display:none;">No upcoming tasks 🎉</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="tasks" class="page">
+      <div class="page-header">
+        <h2>Tasks</h2>
+        <p class="muted">Add, complete, and manage tasks</p>
+      </div>
+
+      <div class="panel">
+        <h3>Add Task</h3>
+
+        <form id="taskForm" class="form">
+          <div class="field">
+            <label for="taskTitle">Title <span class="req">*</span></label>
+            <input id="taskTitle" type="text" placeholder="e.g., Study chapter 3" required />
+            <p class="error" id="taskTitleError"></p>
+          </div>
+
+          <div class="field">
+            <label for="taskDescription">Description</label>
+            <textarea id="taskDescription" placeholder="Optional notes..."></textarea>
+          </div>
+
+          <div class="grid two">
+            <div class="field">
+              <label for="taskDueDate">Due Date <span class="req">*</span></label>
+              <input id="taskDueDate" type="date" required />
+              <p class="error" id="taskDueError"></p>
+            </div>
+
+            <div class="field">
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="taskCategory">Category</label>
+            <input id="taskCategory" type="text" placeholder="e.g., Math" />
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" type="submit" id="taskSubmitBtn">Add Task</button>
+            <button class="btn ghost" type="button" id="taskCancelEditBtn" style="display:none;">Cancel Edit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Task List</h3>
+          <div class="filters">
+            <select id="taskStatusFilter" title="Filter">
+              <option value="all" selected>All</option>
+              <option value="active">Active</option>
+              <option value="completed">Completed</option>
+            </select>
+
+            <select id="taskSort" title="Sort">
+              <option value="dueDate" selected>Sort: Due Date</option>
+              <option value="priority">Sort: Priority</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="tasksList" class="cards"></div>
+        <p class="muted small" id="tasksEmpty" style="display:none;">No tasks yet. Add one above.</p>
+      </div>
+    </section>
+
+    <section id="habits" class="page">
+      <div class="page-header">
+        <h2>Habits</h2>
+        <p class="muted">Track your weekly habits (Sat → Fri)</p>
+      </div>
+
+      <div class="panel">
+        <h3>Add Habit</h3>
+        <form id="habitForm" class="form">
+          <div class="grid two">
+            <div class="field">
+              <label for="habitName">Habit Name <span class="req">*</span></label>
+              <input id="habitName" type="text" required placeholder="e.g., Read 20 minutes" />
+              <p class="error" id="habitNameError"></p>
+            </div>
+
+            <div class="field">
+              <label for="habitGoal">Goal (days/week) <span class="req">*</span></label>
+              <input id="habitGoal" type="number" min="1" max="7" required value="3" />
+              <p class="error" id="habitGoalError"></p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" type="submit">Add Habit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Weekly Summary</h3>
+          <span class="muted small" id="habitWeekInfo"></span>
+        </div>
+        <p class="muted" id="habitSummaryText">Goals Achieved: 0 / 0</p>
+      </div>
+
+      <div class="panel">
+        <h3>Your Habits</h3>
+        <div id="habitsList" class="cards"></div>
+        <p class="muted small" id="habitsEmpty" style="display:none;">No habits yet. Add one above.</p>
+      </div>
+    </section>
+
+
+    <section id="resources" class="page">
+      <div class="page-header">
+        <h2>Resources</h2>
+        <p class="muted">Search, filter, and favorite resources</p>
+      </div>
+
+      <div class="panel">
+        <div class="grid two">
+          <div class="field">
+            <label for="resourceSearch">Search</label>
+            <input id="resourceSearch" type="text" placeholder="Search by title or description..." />
+          </div>
+
+          <div class="field">
+            <label for="resourceCategory">Category</label>
+            <select id="resourceCategory">
+              <option value="all" selected>All</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="muted small" id="resourcesStatus"></div>
+      </div>
+
+      <div id="resourcesList" class="cards"></div>
+    </section>
+
+
+    <section id="settings" class="page">
+      <div class="page-header">
+        <h2>Settings</h2>
+        <p class="muted">Theme & data controls</p>
+      </div>
+
+      <div class="panel">
+        <h3>Theme</h3>
+        <div class="row">
+          <label for="themeSwitch" class="muted">Choose theme</label>
+          <select id="themeSwitch">
+            <option value="light" selected>Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Reset</h3>
+        <button class="btn danger" id="resetBtn">Reset Data</button>
+        <p class="muted small">This clears tasks, habits, favorites, and theme.</p>
+      </div>
+
+      <div class="panel">
+        <h3>About</h3>
+        <p class="muted">An Application to help students with Tasks, Habits, and Educational Resources!</p>
+        <p><strong>By: </strong>Salah Al-Soufi</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p class="muted small">© 2026 Poro StudyBuddy</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

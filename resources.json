@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Khan Academy — Algebra",
+    "category": "Math",
+    "link": "https://www.khanacademy.org/math/algebra",
+    "description": "Free lessons and practice for algebra with videos and quizzes."
+  },
+  {
+    "id": 2,
+    "title": "Paul's Online Math Notes",
+    "category": "Math",
+    "link": "https://tutorial.math.lamar.edu/",
+    "description": "Clear notes and examples for algebra, calculus, and more."
+  },
+  {
+    "id": 3,
+    "title": "Physics Classroom",
+    "category": "Science",
+    "link": "https://www.physicsclassroom.com/",
+    "description": "Physics tutorials, concept builders, and practice questions."
+  },
+  {
+    "id": 4,
+    "title": "Crash Course — Science",
+    "category": "Science",
+    "link": "https://www.youtube.com/user/crashcourse",
+    "description": "Short, high-quality videos across science topics."
+  },
+  {
+    "id": 5,
+    "title": "Coursera — Study Skills",
+    "category": "Study Skills",
+    "link": "https://www.coursera.org/",
+    "description": "Courses on learning strategies, time management, and productivity."
+  },
+  {
+    "id": 6,
+    "title": "Pomofocus (Pomodoro Timer)",
+    "category": "Study Tools",
+    "link": "https://pomofocus.io/",
+    "description": "Simple Pomodoro timer to improve focus while studying."
+  },
+  {
+    "id": 7,
+    "title": "Notion Student Templates",
+    "category": "Study Tools",
+    "link": "https://www.notion.so/templates",
+    "description": "Templates for planners, task lists, and study dashboards."
+  },
+  {
+    "id": 8,
+    "title": "Grammarly Writing Tips",
+    "category": "English",
+    "link": "https://www.grammarly.com/blog/",
+    "description": "Grammar and writing tips for essays and reports."
+  },
+  {
+    "id": 9,
+    "title": "Purdue OWL — Writing Lab",
+    "category": "English",
+    "link": "https://owl.purdue.edu/",
+    "description": "Essay structure, citations (APA/MLA), and academic writing help."
+  },
+  {
+    "id": 10,
+    "title": "Wikipedia — World History Portal",
+    "category": "History",
+    "link": "https://en.wikipedia.org/wiki/Portal:History",
+    "description": "Good starting point to explore history topics and timelines."
+  },
+  {
+    "id": 11,
+    "title": "National Geographic Education",
+    "category": "History",
+    "link": "https://education.nationalgeographic.org/",
+    "description": "Articles and learning materials for geography and history."
+  },
+  {
+    "id": 12,
+    "title": "MIT OpenCourseWare",
+    "category": "General",
+    "link": "https://ocw.mit.edu/",
+    "description": "Free university-level courses and materials across subjects."
+  }
+]
