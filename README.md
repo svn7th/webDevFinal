@@ -14,23 +14,23 @@
 
 # Screenshots:
 1. في الوضع الطبيعي:
-* ![dashboard](Screenshots/dashboard.png)
-* ![tasks](Screenshots/tasks.png)
-* ![habits](Screenshots/habits.png)
-* ![settings](Screenshots/settings.png)
-* ![resources](Screenshots/resources.png)
+* ![dashboard](dashboard.png)
+* ![tasks](tasks.png)
+* ![habits](habits.png)
+* ![settings](settings.png)
+* ![resources](resources.png)
 
 2. في الوضع المظلم:
-* ![dark dashboard](Screenshots/dashboardDark.png)
-* ![dark tasks](Screenshots/tasksDark.png)
-* ![dark habits](Screenshots/habitsDark.png)
-* ![dark settings](Screenshots/settingsDark.png)
-* ![dark resources](Screenshots/resourcesDark.png)
+* ![dark dashboard](dashboardDark.png)
+* ![dark tasks](tasksDark.png)
+* ![dark habits](habitsDark.png)
+* ![dark settings](settingsDark.png)
+* ![dark resources](resourcesDark.png)
 
 3. في وضع الموبايل:
-* ![mobile dashboard](Screenshots/dashboardMobile.png)
-* ![mobile tasks](Screenshots/tasksMobile.png)
-* ![mobile habits](Screenshots/habitsMobile.png)
-* ![mobile settings](Screenshots/settingsMobile.png)
+* ![mobile dashboard](dashboardMobile.png)
+* ![mobile tasks](tasksMobile.png)
+* ![mobile habits](habitsMobile.png)
+* ![mobile settings](settingsMobile.png)
+* ![mobile resources](resourcesMobile.png)
 
-* ![mobile resources](Screenshots/resourcesMobile.png)
